@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
     entry: [ __dirname + '/src/index.js'],
     output: {
         path: __dirname + 'public',
@@ -19,7 +19,8 @@ module.export = {
     },
     devServer: {
         contentBase: 'public',
-        hot: true
+        hot: true,
+        port: 2222
     },
     resolve:{
         extensions:['.js']

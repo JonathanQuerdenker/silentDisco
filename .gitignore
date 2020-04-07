@@ -1,1 +1,4 @@
 node_modules
+
+# git remote add origin https://github.com/JonathanQuerdenker/silentDisco.git
+# git push -u origin master
