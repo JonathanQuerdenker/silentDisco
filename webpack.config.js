@@ -1,10 +1,11 @@
+console.log(process.env.NODE_ENV)
 module.exports = {
     entry: [ __dirname + '/src/index.js'],
     output: {
-        path: __dirname + 'public',
+        path: __dirname + '/public',
         filename: 'bundle.js'
     },
-    mode:'development',
+    // mode:process.env.NODE_ENV !== 'production' ?  'development': 'production',
     module: {
         rules: [
             {
