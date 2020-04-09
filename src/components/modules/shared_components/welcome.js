@@ -4,15 +4,6 @@ import Copyright from "../shared_components/footer";
 import {Avatar,Button, Link, Paper, Box, Grid, Typography, makeStyles } from '@material-ui/core/';
 // import {LockOutlinedIcon} from '@material-ui/icons/';
 
-// import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
-// import Link from '@material-ui/core/Link';
-// import Paper from '@material-ui/core/Paper';
-// import Box from '@material-ui/core/Box';
-// import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
-// import { makeStyles } from '@material-ui/core/styles';
-
 const useStyles = makeStyles(theme => ({
     root: {
         height: '100vh',
@@ -35,7 +26,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.secondary.main,
     },
     form: {
-        width: '100%', // Fix IE 11 issue.
+        width: '100%',
         marginTop: theme.spacing(1),
     },
     submit: {
@@ -43,8 +34,6 @@ const useStyles = makeStyles(theme => ({
     },
     sign:{
         backgroundColor: '#6f6f709a',
-        // opacity: 0.5,
-        // filter:"blur(25)",
     }
 }));
 
