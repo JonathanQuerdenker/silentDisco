@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router} from "react-router-dom";
-import Route from 'react-router-dom/Route'//WARNING: THIS TYPE OF IMPORT IS DEPRECATED
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import SignInSide from "./components/modules/shared_components/welcome";
 import PickUserRole from "./components/modules/shared_components/pickUserRole";

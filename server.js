@@ -3,6 +3,7 @@ const http = require('http')
 const socketIO = require('socket.io')
 const port = 4001
 const app = express()
+const path = require('path')
 
 if (process.env.NODE_ENV !== "production") {
   const middleware = require('webpack-dev-middleware')
@@ -12,6 +13,9 @@ if (process.env.NODE_ENV !== "production") {
   app.use(middleware(compiler, {}))
 }
 // our localhost port
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/public/index.html'));
+});
 
 app.use(express.static("./public"))
 // our server instance
@@ -28,5 +32,6 @@ io.on('connection', socket => {
     console.log('user disconnected')
   })
 })
+
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
