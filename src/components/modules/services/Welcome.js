@@ -1,5 +1,5 @@
 import React from 'react';
-import Copyright from "../shared_components/footer";
+import Copyright from "./Footer";
 
 import {Avatar,Button, Link, Paper, Box, Grid, Typography, makeStyles } from '@material-ui/core/';
 // import {LockOutlinedIcon} from '@material-ui/icons/';

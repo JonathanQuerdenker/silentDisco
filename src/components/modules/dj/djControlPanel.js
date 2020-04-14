@@ -1,1 +1,0 @@
-import Copyright from "../shared_components/footer";

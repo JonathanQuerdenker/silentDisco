@@ -1,4 +1,4 @@
-import Copyright from "../shared_components/footer";
+import Copyright from "../services/Footer";
 
 import React, { useState, useEffect, }  from 'react';
 
