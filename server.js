@@ -13,9 +13,7 @@ if (process.env.NODE_ENV !== "production") {
   app.use(middleware(compiler, {}))
 }
 // our localhost port
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/public/index.html'));
-});
+
 
 app.use(express.static("./public"))
 // our server instance
@@ -33,5 +31,8 @@ io.on('connection', socket => {
   })
 })
 
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/public/index.html'));
+});
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
