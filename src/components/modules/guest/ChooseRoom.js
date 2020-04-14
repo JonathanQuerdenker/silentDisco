@@ -4,7 +4,7 @@ import React, { useState, useEffect, }  from 'react';
 
 import {IconButton, TextField, Link, Paper, Box, Grid, Typography, makeStyles} from '@material-ui/core';
 
-// import SlowMotionVideoIcon from '@material-ui/icons/SlowMotionVideo';
+import SlowMotionVideoIcon from '@material-ui/icons/SlowMotionVideo';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
         overflow:'auto'
     },
     paper: {
-        height: "100%",
+        // height: "100%",
         margin: theme.spacing(8, 4),
         display: 'flex',
         flexDirection: 'column',
@@ -26,6 +26,12 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: 'transparent'
 
     },
+    // content:{
+    //   flex:'1',
+    //   display: 'flex',
+    //   alignItems:'center'
+    //
+    // },
     avatar: {
         margin: theme.spacing(1),
         backgroundColor: theme.palette.secondary,
@@ -74,13 +80,11 @@ export default function ChooseRoom(props) {
             <Grid item xs={false} sm={8} md={7}  />
             <Grid className= {classes.sign} item xs={12} sm={4} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
+                    <div className={classes.content}>
                     <Typography className={classes.headline} component="h1" variant="h5">
                         You're in the lobby now,<br></br>
                         where would you like to party?
                     </Typography>
-                    <br></br>
-                    <br></br>
-                    <br></br>
                     <div>
                         <form className={classes.container} noValidate autoComplete="on" onSubmit={enterRoom}>
                             <TextField className={classes.search}
@@ -99,12 +103,13 @@ export default function ChooseRoom(props) {
                                 type="submit"
                                 style={{padding:0}}
                             >
-                                {/*<SlowMotionVideoIcon*/}
-                                {/*    className={classes.fab}*/}
-                                {/*/>*/}
+                                <SlowMotionVideoIcon
+                                    className={classes.fab}
+                                />
                             </IconButton>
                         </form>
                     </div>
+                </div>
                     <Box className={classes.copyright} mt={5}>
                         <Copyright />
                     </Box>

@@ -2,7 +2,7 @@ import React from 'react';
 import Copyright from "./Footer";
 
 import {Avatar,Button, Link, Paper, Box, Grid, Typography, makeStyles } from '@material-ui/core/';
-// import {LockOutlinedIcon} from '@material-ui/icons/';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -56,7 +56,7 @@ export default function SignInSide() {
                     <br></br>
                     <br></br>
                     <Avatar className={classes.avatar}>
-                        {/*<LockOutlinedIcon />*/}
+                        <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Sign in

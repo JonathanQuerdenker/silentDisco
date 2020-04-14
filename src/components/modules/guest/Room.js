@@ -5,9 +5,9 @@ import React, { useState, useEffect, }  from 'react';
 
 // ----------MUI---------------
 
-// import IconButton from '@material-ui/core/IconButton';
-// import Replay5RoundedIcon from '@material-ui/icons/Replay5Rounded';
-// import FolderIcon from '@material-ui/icons/Folder';
+import Replay5RoundedIcon from '@material-ui/icons/Replay5Rounded';
+import FolderIcon from '@material-ui/icons/Folder';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 import {IconButton, Paper, Box, Grid, Typography, makeStyles, ListItemAvatar, ListItem, ListItemText, Avatar} from "@material-ui/core";
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         overflow:'auto'
     },
     paper: {
-        height: "100%",
+        // height: "100%",
         margin: theme.spacing(8, 4),
         display: 'flex',
         flexDirection: 'column',
@@ -48,9 +48,9 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(3, 0, 2),
     },
     sign:{
-        backgroundColor: '#6f6f709a',
-        display: "flex",
-        alignItems: "center",
+        backgroundColor: '#6f6f709a'
+        // display: "flex",
+        // alignItems: "center",
     },
     search:{
         width: "30vmax",
@@ -92,12 +92,21 @@ useEffect(()=>{
             <Grid item xs={false} sm={8} md={7}  />
             <Grid className= {classes.sign} item xs={12} sm={4} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
+                    {/*<IconButton onClick={()=>console.log('click registered')}*/}
+                    {/*            color="default"*/}
+                    {/*            type="submit"*/}
+                    {/*            style={{padding:0}}*/}
+                    {/*>*/}
+                    {/*    <ExitToAppIcon*/}
+                    {/*        className={classes.fab}*/}
+                    {/*    />*/}
+                    {/*    <Typography className={classes.headline} component="h1" variant="h5">*/}
+                    {/*        Exit*/}
+                    {/*    </Typography>*/}
+                    {/*</IconButton>*/}
                     <Typography className={classes.headline} component="h1" variant="h5">
                         Dance like nobody's watching!
                     </Typography>
-                    <br></br>
-                    <br></br>
-                    <br></br>
                     {song ?
                         <ListItem className={classes.playingNow}
                         >
@@ -106,7 +115,7 @@ useEffect(()=>{
                                 {song[0].body.item.album.images[0].url?
                                     <img className={classes.img} src={song[0].body.item.album.images[0].url}/> :
                                     <Avatar>
-                                        {/*<FolderIcon />*/}
+                                        <FolderIcon />
                                     </Avatar>}
                             </ListItemAvatar>
                             <ListItemText
@@ -124,7 +133,7 @@ useEffect(()=>{
                                 {currentSong[0].body.item.album.images[0].url?
                                     <img className={classes.img} src={currentSong[0].body.item.album.images[0].url}/> :
                                     <Avatar>
-                                        {/*<FolderIcon />*/}
+                                        <FolderIcon />
                                     </Avatar>}
                             </ListItemAvatar>
                             <ListItemText
@@ -133,18 +142,18 @@ useEffect(()=>{
 
                             />
                         </ListItem>}
-                    {/*<IconButton onClick={()=>resyncPlayback()}*/}
-                    {/*            color="default"*/}
-                    {/*            type="submit"*/}
-                    {/*            style={{padding:0}}*/}
-                    {/*>*/}
-                    {/*    <Replay5RoundedIcon*/}
-                    {/*        className={classes.fab}*/}
-                    {/*    />*/}
-                    {/*    <Typography className={classes.headline} component="h1" variant="h5">*/}
-                    {/*        Synchronise Playback*/}
-                    {/*    </Typography>*/}
-                    {/*</IconButton>*/}
+                    <IconButton onClick={()=>console.log('click registered')}
+                                color="default"
+                                type="submit"
+                                style={{padding:0}}
+                    >
+                        <Replay5RoundedIcon
+                            className={classes.fab}
+                        />
+                        <Typography className={classes.headline} component="h1" variant="h5">
+                            Synchronise Playback
+                        </Typography>
+                    </IconButton>
                     <div>
                     </div>
                     <Box className={classes.copyright} mt={5}>
