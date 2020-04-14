@@ -15,7 +15,7 @@ export default function App() {
                 <div>
                     <Route exact path='/' component={SignInSide}/>
                     <Route path='/guest-or-dj' component={PickUserRole}/>
-                    <Route path='/lobby' component={ChooseRoom}/>
+                    <Route path='/hello/lobby' component={Room}/>
                     {/*<Route path='/dj/:id' component={DjControlPanel}/>*/}
                     <Route path='/stage/:id' component={Room}/>
                     {/*<Route path='guest_or_dj' component={pickUserRole}/>*/}

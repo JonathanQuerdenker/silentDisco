@@ -60,6 +60,12 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
+function handleChange () {
+    console.log(this)
+}
+function enterRoom() {
+    console.log('clicked ' + this)
+}
 export default function ChooseRoom(props) {
     const classes = useStyles();
     return (

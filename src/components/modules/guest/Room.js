@@ -12,7 +12,9 @@ import React, { useState, useEffect, }  from 'react';
 import {IconButton, Paper, Box, Grid, Typography, makeStyles, ListItemAvatar, ListItem, ListItemText, Avatar} from "@material-ui/core";
 
 //-----------Spotify API ---------
-
+//-----------Dummy constants------
+const song = '';
+const currentSong = '';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -80,7 +82,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Room(props) {
+    const stage = props.match.params.id
     const classes = useStyles();
+useEffect(()=>{
+    console.log('the stage is '+ stage)}, []);
 
     return (
         <Grid container component="main" className={classes.root}>
