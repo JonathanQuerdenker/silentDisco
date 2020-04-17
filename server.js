@@ -1,9 +1,14 @@
 const express = require('express')
 const http = require('http')
+const path = require('path')
 const socketIO = require('socket.io')
+require ('dotenv').config()
+
+const router = require("./server/router")
+
 const port = 4001
 const app = express()
-const path = require('path')
+
 
 if (process.env.NODE_ENV !== "production") {
   const middleware = require('webpack-dev-middleware')
@@ -12,9 +17,8 @@ if (process.env.NODE_ENV !== "production") {
   const compiler = webpack(config)
   app.use(middleware(compiler, {}))
 }
+
 // our localhost port
-
-
 app.use(express.static("./public"))
 // our server instance
 const server = http.createServer(app)
@@ -31,8 +35,7 @@ io.on('connection', socket => {
   })
 })
 
-app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/public/index.html'));
-});
+app.use('/', router)
+
 
 server.listen(port, () => console.log(`Listening on port ${port}`))
