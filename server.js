@@ -26,6 +26,8 @@ const server = http.createServer(app)
 // This creates our socket using the instance of the server
 const io = socketIO(server)
 
+//TODO serve middleware to io.server
+
 // This is what the socket.io syntax is like, we will work this later
 io.on('connection', socket => {
   console.log('User connected')
