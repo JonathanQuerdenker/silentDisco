@@ -8,7 +8,10 @@ const cors = require('cors')
 const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 
-//TODO import compiler
+const csurf = require('csurf')
+
+//QUESTION:  use req.session instead of cookie?
+
 const webpack = require('webpack')
 const config = require('../webpack.config')
 const compiler = webpack(config)
@@ -17,6 +20,11 @@ app.use(middleware(compiler, {}))
     .use(cors())
     .use(cookieParser())
     .use(compression())
+    .use(csurf())
+    .use(function (req, res, next) {
+        res.cookie('myToken', req.csrfToken())
+        next()
+    })
 
 const cookieSessionMiddleware = cookieSession({
         name: "session",
