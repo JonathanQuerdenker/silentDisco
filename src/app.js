@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 import SignInSide from "./components/modules/services/Welcome";
 import PickUserRole from "./components/modules/services/PickUserRole";
@@ -13,13 +13,14 @@ export default function App() {
     return (
         <React.Fragment>
             <Router>
-                <div>
+                <Switch>
                     <Route exact path='/' component={SignInSide}/>
                     <Route path='/guest-or-dj' component={PickUserRole}/>
-                    <Route path='/lobby' component={ChooseRoom}/>
-                    <Route path='/dj/:id' component={DjControlPanel}/>
                     <Route path='/stage/:id' component={Room}/>
-                </div>
+                    <Route path='/stage/' component={ChooseRoom}/>
+                    <Route path='/dj/:id' component={DjControlPanel}/>
+                    <Route path='/dj/' component={ChooseRoom}/>
+                </Switch>
             </Router>
         </React.Fragment>
     );

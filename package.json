@@ -4,7 +4,7 @@
   "description": "Listen to Spotify music with your friends",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "./node_modules/.bin/nodemon --exec babel-node --ignore src/ server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production",
     "dev": "webpack-dev-server --open",
@@ -19,7 +19,7 @@
   "author": "Jonathan Bausch",
   "license": "ISC",
   "dependencies": {
-    "@material-ui/core": "^4.9.9",
+    "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
@@ -29,19 +29,23 @@
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^5.2.0",
     "socket.io": "^2.3.0",
-    "spotify-web-api-node": "^4.0.0"
+    "spotify-web-api-node": "git+https://github.com/koflin/spotify-web-api-node.git#hotfix/play_position_ms"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-react": "^7.9.4",
-    "@types/react-router-dom": "^5.1.4",
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "@types/react-router-dom": "^5.1.6",
     "babel-loader": "^8.1.0",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11",
+    "body-parser": "^1.19.0",
+    "js-cookie": "^2.2.1",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   }
 }

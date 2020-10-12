@@ -1,25 +1,13 @@
+// const app = require('./server/middleware')
+import app from './server/middleware'
 const http = require('http')
 const socketIO = require('socket.io')
-require ('dotenv').config()
+import ('dotenv/config')
 
-// const express = require('express')
-// const path = require('path')
-// const router = require("./server/router")
+// localhost port
 const port = 4001
-const {app} = require('./server/middleware')
 
-
-if (process.env.NODE_ENV !== "production") {
-  const middleware = require('webpack-dev-middleware')
-  const webpack = require('webpack')
-  const config = require('./webpack.config.js')
-  const compiler = webpack(config)
-  app.use(middleware(compiler, {}))
-}
-
-// our localhost port
-// app.use(express.static("./public")) //move to middleware.js
-// our server instance
+//server instance
 const server = http.createServer(app)
 
 // This creates our socket using the instance of the server
@@ -36,8 +24,5 @@ io.on('connection', socket => {
     console.log('User disconnected')
   })
 })
-
-// app.use('/', router) //move to middleware.js
-
 
 server.listen(port, () => console.log(`Listening on port ${port}`))

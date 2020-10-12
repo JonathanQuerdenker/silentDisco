@@ -4,17 +4,18 @@ const compression = require('compression')
 const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 const csurf = require('csurf')
-const middleware = require('webpack-dev-middleware')
 const router = require("./router")
-require('dotenv').config()
-
-
+import bodyParser from 'body-parser'
 //QUESTION:  use req.session instead of cookie?
 
-const webpack = require('webpack')
-const config = require('../webpack.config')
-const compiler = webpack(config)
 
+if (process.env.NODE_ENV !== "production") {
+    const middleware = require('webpack-dev-middleware')
+    const webpack = require('webpack')
+    const config = require('../webpack.config')
+    const compiler = webpack(config)
+    app.use(middleware(compiler, {}))
+}
 const cookieSessionMiddleware = cookieSession({
         name: "session",
         secret: process.env.SESSION_SECRET,
@@ -22,19 +23,16 @@ const cookieSessionMiddleware = cookieSession({
     }
 )
 
-app.use(middleware(compiler, {}))
-    .use(cookieParser())
+
+app.use(cookieParser())
+    .use(cookieSessionMiddleware)
     .use(compression())
-    .use(csurf({cookie: true}))
-    // .use(function (req, res, next) {
-    //     res.cookie('securityToken', req.csrfToken())
-    //     next()
-    //
-    // })
+    // .use(csurf({cookie: true}))
+    .use(bodyParser.json())
     .use(express.static("./public"))
     .use('/', router)
-    .use(cookieSessionMiddleware)
 
-exports.app = app
+
+module.exports = app
 
 

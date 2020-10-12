@@ -70,14 +70,14 @@ export default function PickUserRole (){
     return (
         <Grid container spacing={3} className={classes.root}>
             <Grid item xs={12} sm={6}  className={classes.leftGrid}>
-                <Link to='/lobby'className={classes.link}>
+                <Link to='/dj/'className={classes.link}>
                     <Typography  component="h1" variant="h1">
                         DJ
                     </Typography>
                 </Link>
             </Grid>
             <Grid className={classes.rightGrid} item xs={12} sm={6}>
-                <Link to='/lobby' className={classes.link} >
+                <Link to='/stage/' className={classes.link} >
                     <Typography  component="h1" variant="h1">
                         PARTY ANIMAL
                     </Typography>

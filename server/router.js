@@ -2,6 +2,8 @@ const path = require('path')
 const express = require('express')
 const SpotifyWebApi = require('spotify-web-api-node')
 const router = express.Router()
+require('dotenv').config()
+
 const spotifyApi = new SpotifyWebApi({
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
@@ -39,16 +41,69 @@ router.get('/callback', (req, res) => {
     const {code} = req.query
     spotifyApi.authorizationCodeGrant(code).then(
         function (data) {
-            console.log(data)
+            req.session.authToken = data.body.access_token
+            console.log('router callback', req.session.authToken)
+            res.redirect('/guest-or-dj')
         }
     ).catch(function (error) {
         console.log(error)
+        res.redirect('/')
     })
     console.log(code)
-    res.send(process.env.CLIENT_SECRET)
+
 })
 
 
+let rooms = []
+router.post('/set-room', (req, res) => {
+    spotifyApi.setAccessToken(req.session.authToken)
+    spotifyApi.getMyCurrentPlaybackState().then(response => {
+        let chosenRoom = req.body.room
+        const currentRoom = rooms.find(room => room.name === chosenRoom)
+        if (currentRoom) {
+            //    todo check if dj is the owner of the room, then update state otherwise send error_msg
+        } else {
+            rooms.push({
+                name: req.body.room,
+                currentSong: {
+                    uri: response.body.item.uri,
+                    timestamp: response.body.timestamp,
+                    progress: response.body.progress_ms
+                }
+            })
+        }
+        console.log('the current song is: ', rooms)
+        res.send()
+    }).catch(error => {
+        //    todo
+    })
+
+//    todo check rooms
+
+})
+
+router.post('/enter-room', (req, res) => {
+    let chosenRoom = req.body.room
+    spotifyApi.setAccessToken(req.session.authToken)
+    const currentRoom = rooms.find(room => room.name === chosenRoom)
+    if (currentRoom) {
+        const offset = new Date() - new Date(currentRoom.currentSong.timestamp);
+        console.log("offset is ", offset)
+        console.log("prgrss is ", typeof currentRoom.currentSong.progress)
+        spotifyApi.play({
+            // "device_id": device_id,
+            "uris": [currentRoom.currentSong.uri],
+            "position_ms": 50000
+        }).then(response => {
+                console.log(response)
+                res.send()
+            }
+        ).catch(error=>console.log(error))
+
+    } else {
+        //    todo
+    }
+})
 //last route
 router.get('*', (req, res) => {
     res.sendFile(path.join(process.cwd() + '/public/index.html'));

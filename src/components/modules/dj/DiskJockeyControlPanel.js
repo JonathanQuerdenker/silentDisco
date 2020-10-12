@@ -147,12 +147,12 @@ export default function DjControlPanel (props){
 
         e.preventDefault();
         //
-        // spotifyApi.searchPlaylists(values.playlist, { limit : 5, offset : 0 })
-        //     .then(a=>{
-        //         console.log('this should really happen ',a.body.playlists.items);
-        //
-        //         setPlaylists(a.body.playlists.items);
-        //     });
+        spotifyApi.searchPlaylists(values.playlist, { limit : 5, offset : 0 })
+            .then(a=>{
+                console.log('this should really happen ',a.body.playlists.items);
+
+                setPlaylists(a.body.playlists.items);
+            });
         //
         // //-------------GET CURRENT TRACK FROM DJ-------------------
         //
