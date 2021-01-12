@@ -1,6 +1,4 @@
 import Copyright from "../services/Footer";
-
-
 import React, { useState, useEffect, }  from 'react';
 // import axios from '../axios';
 //
@@ -83,9 +81,10 @@ export default function DjControlPanel (props){
         submit: {
             margin: theme.spacing(3, 0, 2),
         },
-        sign:{
-            backgroundColor: '#6f6f709a',
+        allCentered:{
             display: "flex",
+            flexDirection:"column",
+            justifyContent:"center",
             alignItems: "center",
             // opacity: 0.5,
             // filter: "blur(25px)",
@@ -109,7 +108,7 @@ export default function DjControlPanel (props){
             textAlign: 'center',
         },
         copyright:{
-            // justifySelf: "flex-end"
+            justifySelf: "flex-end"
         },
         img:{
             height: "80px",
@@ -215,8 +214,7 @@ export default function DjControlPanel (props){
 
     return (
         <Grid container component="main" className={classes.root}>
-
-            <Grid className= {classes.sign} item xs={12} sm={6} md={5} component={Paper} elevation={6} square>
+            <Grid className= {classes.allCentered} item xs={12} sm={6} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
                     <Typography className={classes.headline} component="h1" variant="h5">
                         Feeling lucky?<br></br>
@@ -270,7 +268,7 @@ export default function DjControlPanel (props){
                     </List>
                 </div>
             </Grid>
-            <Grid item xs={12} sm={6} md={7}  >
+            <Grid className= {classes.allCentered} item xs={12} sm={6} md={7}  >
                 <div className={classes.paperRight}>
                     <Typography className={classes.headline} component="h1" variant="h5">
                         Control with my Spotify App
