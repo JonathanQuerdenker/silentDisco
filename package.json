@@ -1,6 +1,6 @@
 {
   "name": "silentdisco",
-  "homepage": ".",
+  "homepage": "https://silent-disco.now.sh",
   "version": "1.0.0",
   "description": "Listen to Spotify music with your friends",
   "main": "index.js",
