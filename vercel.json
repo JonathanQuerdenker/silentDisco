@@ -1,0 +1,10 @@
+{
+    "routes": [
+        { "src": "/", "dest": "/" },
+        { "src": "/guest-or-dj", "dest": "/" },
+        { "src": "/stage/:id", "dest": "/" },
+        { "src": "/stage/", "dest": "/" },
+        { "src": "/dj/:id", "dest": "/" },
+        { "src": "/dj/", "dest": "/" }
+    ]
+}
