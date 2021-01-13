@@ -1,5 +1,12 @@
 {
+    "version": 2,
+    "public": false,
+    "builds": [
+        { "src": "package.json", "use": "@now/static-build" },
+        { "src": "server.js", "use": "@now/node-server" }
+    ],
     "routes": [
+        { "src": ".*", "dest": "/index.html" },
         { "src": "/", "dest": "/" },
         { "src": "/guest-or-dj", "dest": "/" },
         { "src": "/stage/:id", "dest": "/" },
