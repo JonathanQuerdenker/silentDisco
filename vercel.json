@@ -4,7 +4,7 @@
     "routes": [
         { "src": ".*", "dest": "/public/index.html" },
         { "src": "/", "dest": "/" },
-        { "src": "/guest-or-dj", "dest": "/" },
+        { "src": "/guest-or-dj", "dest": "/src/components/modules/guest/ChooseRoom.js" },
         { "src": "/stage/:id", "dest": "/" },
         { "src": "/stage/", "dest": "/" },
         { "src": "/dj/:id", "dest": "/" },
