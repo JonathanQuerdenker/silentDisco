@@ -66,7 +66,7 @@ export default function SignInSide() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        href="/login"
+                        href="/guest-or-dj"
                     >
                         GO
                     </Button>
