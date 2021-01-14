@@ -47,7 +47,7 @@ export default function SignInSide() {
             <Grid className= {classes.sign} item xs={12} sm={6} md={5} component={Paper} elevation={6} square>
                 <div className={classes.paper}>
                     <Typography  component="h1" variant="h5">
-                        Ready to RocknRoll, Bounce and Swing?
+                        Ready to Rock'n'Roll, Bounce and Swing?
                     </Typography>
                     <br></br>
                     <br></br>
